@@ -343,7 +343,7 @@ public class CallFeaturesSetting extends PreferenceActivity
                 (carrierConfig.getBoolean(
                         CarrierConfigManager.KEY_IGNORE_DATA_ENABLED_CHANGED_FOR_VIDEO_CALLS)
                         || mPhone.mDcTracker.isDataEnabled(true)) &&
-                (mPhone.getImsPhone() != null)) {
+                        (mPhone.getImsPhone() != null)) {
             boolean currentValue =
                     ImsManager.isEnhanced4gLteModeSettingEnabledByUser(mPhone.getContext())
                     ? PhoneGlobals.getInstance().phoneMgr.isVideoCallingEnabled(
