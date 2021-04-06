@@ -3218,7 +3218,7 @@ public class PhoneInterfaceManager extends ITelephony.Stub {
     @Override
     public int getNetworkSelectionMode(int subId) {
         TelephonyPermissions
-                    .enforeceCallingOrSelfReadPrecisePhoneStatePermissionOrCarrierPrivilege(
+                    .enforceCallingOrSelfReadPrecisePhoneStatePermissionOrCarrierPrivilege(
                     mApp, subId, "getNetworkSelectionMode");
         final long identity = Binder.clearCallingIdentity();
         try {
@@ -3255,7 +3255,7 @@ public class PhoneInterfaceManager extends ITelephony.Stub {
     @Override
     public void registerImsRegistrationCallback(int subId, IImsRegistrationCallback c)
             throws RemoteException {
-        TelephonyPermissions.enforeceCallingOrSelfReadPrecisePhoneStatePermissionOrCarrierPrivilege(
+        TelephonyPermissions.enforceCallingOrSelfReadPrecisePhoneStatePermissionOrCarrierPrivilege(
                 mApp, subId, "registerImsRegistrationCallback");
 
         if (!ImsManager.isImsSupportedOnDevice(mApp)) {
@@ -3281,7 +3281,7 @@ public class PhoneInterfaceManager extends ITelephony.Stub {
      */
     @Override
     public void unregisterImsRegistrationCallback(int subId, IImsRegistrationCallback c) {
-        TelephonyPermissions.enforeceCallingOrSelfReadPrecisePhoneStatePermissionOrCarrierPrivilege(
+        TelephonyPermissions.enforceCallingOrSelfReadPrecisePhoneStatePermissionOrCarrierPrivilege(
                 mApp, subId, "unregisterImsRegistrationCallback");
         if (!SubscriptionManager.isValidSubscriptionId(subId)) {
             throw new IllegalArgumentException("Invalid Subscription ID: " + subId);
@@ -3338,7 +3338,7 @@ public class PhoneInterfaceManager extends ITelephony.Stub {
      */
     @Override
     public void getImsMmTelRegistrationTransportType(int subId, IIntegerConsumer consumer) {
-        TelephonyPermissions.enforeceCallingOrSelfReadPrecisePhoneStatePermissionOrCarrierPrivilege(
+        TelephonyPermissions.enforceCallingOrSelfReadPrecisePhoneStatePermissionOrCarrierPrivilege(
                 mApp, subId, "getImsMmTelRegistrationTransportType");
         if (!ImsManager.isImsSupportedOnDevice(mApp)) {
             throw new ServiceSpecificException(ImsException.CODE_ERROR_UNSUPPORTED_OPERATION,
@@ -3378,7 +3378,7 @@ public class PhoneInterfaceManager extends ITelephony.Stub {
     @Override
     public void registerMmTelCapabilityCallback(int subId, IImsCapabilityCallback c)
             throws RemoteException {
-        TelephonyPermissions.enforeceCallingOrSelfReadPrecisePhoneStatePermissionOrCarrierPrivilege(
+        TelephonyPermissions.enforceCallingOrSelfReadPrecisePhoneStatePermissionOrCarrierPrivilege(
                 mApp, subId, "registerMmTelCapabilityCallback");
         if (!ImsManager.isImsSupportedOnDevice(mApp)) {
             throw new ServiceSpecificException(ImsException.CODE_ERROR_UNSUPPORTED_OPERATION,
@@ -3403,7 +3403,7 @@ public class PhoneInterfaceManager extends ITelephony.Stub {
      */
     @Override
     public void unregisterMmTelCapabilityCallback(int subId, IImsCapabilityCallback c) {
-        TelephonyPermissions.enforeceCallingOrSelfReadPrecisePhoneStatePermissionOrCarrierPrivilege(
+        TelephonyPermissions.enforceCallingOrSelfReadPrecisePhoneStatePermissionOrCarrierPrivilege(
                 mApp, subId, "unregisterMmTelCapabilityCallback");
         if (!SubscriptionManager.isValidSubscriptionId(subId)) {
             throw new IllegalArgumentException("Invalid Subscription ID: " + subId);
@@ -3503,7 +3503,7 @@ public class PhoneInterfaceManager extends ITelephony.Stub {
      */
     @Override
     public boolean isAdvancedCallingSettingEnabled(int subId) {
-        TelephonyPermissions.enforeceCallingOrSelfReadPrecisePhoneStatePermissionOrCarrierPrivilege(
+        TelephonyPermissions.enforceCallingOrSelfReadPrecisePhoneStatePermissionOrCarrierPrivilege(
                 mApp, subId, "isAdvancedCallingSettingEnabled");
 
         // TODO: Refactor to remove ImsManager dependence and query through ImsPhone directly.
@@ -3540,7 +3540,7 @@ public class PhoneInterfaceManager extends ITelephony.Stub {
      */
     @Override
     public boolean isVtSettingEnabled(int subId) {
-        TelephonyPermissions.enforeceCallingOrSelfReadPrecisePhoneStatePermissionOrCarrierPrivilege(
+        TelephonyPermissions.enforceCallingOrSelfReadPrecisePhoneStatePermissionOrCarrierPrivilege(
                 mApp, subId, "isVtSettingEnabled");
         final long identity = Binder.clearCallingIdentity();
         try {
@@ -3574,7 +3574,7 @@ public class PhoneInterfaceManager extends ITelephony.Stub {
      */
     @Override
     public boolean isVoWiFiSettingEnabled(int subId) {
-        TelephonyPermissions.enforeceCallingOrSelfReadPrecisePhoneStatePermissionOrCarrierPrivilege(
+        TelephonyPermissions.enforceCallingOrSelfReadPrecisePhoneStatePermissionOrCarrierPrivilege(
                 mApp, subId, "isVoWiFiSettingEnabled");
         final long identity = Binder.clearCallingIdentity();
         try {
@@ -3609,7 +3609,7 @@ public class PhoneInterfaceManager extends ITelephony.Stub {
      */
     @Override
     public boolean isVoWiFiRoamingSettingEnabled(int subId) {
-        TelephonyPermissions.enforeceCallingOrSelfReadPrecisePhoneStatePermissionOrCarrierPrivilege(
+        TelephonyPermissions.enforceCallingOrSelfReadPrecisePhoneStatePermissionOrCarrierPrivilege(
                 mApp, subId, "isVoWiFiRoamingSettingEnabled");
         final long identity = Binder.clearCallingIdentity();
         try {
@@ -3661,7 +3661,7 @@ public class PhoneInterfaceManager extends ITelephony.Stub {
      */
     @Override
     public int getVoWiFiModeSetting(int subId) {
-        TelephonyPermissions.enforeceCallingOrSelfReadPrecisePhoneStatePermissionOrCarrierPrivilege(
+        TelephonyPermissions.enforceCallingOrSelfReadPrecisePhoneStatePermissionOrCarrierPrivilege(
                 mApp, subId, "getVoWiFiModeSetting");
         final long identity = Binder.clearCallingIdentity();
         try {
@@ -3743,7 +3743,7 @@ public class PhoneInterfaceManager extends ITelephony.Stub {
      */
     @Override
     public boolean isTtyOverVolteEnabled(int subId) {
-        TelephonyPermissions.enforeceCallingOrSelfReadPrecisePhoneStatePermissionOrCarrierPrivilege(
+        TelephonyPermissions.enforceCallingOrSelfReadPrecisePhoneStatePermissionOrCarrierPrivilege(
                 mApp, subId, "isTtyOverVolteEnabled");
         final long identity = Binder.clearCallingIdentity();
         try {
@@ -5127,7 +5127,7 @@ public class PhoneInterfaceManager extends ITelephony.Stub {
             @ImsFeature.FeatureType int featureType) {
         int[] subIds = SubscriptionManager.getSubId(slotId);
         TelephonyPermissions
-                .enforeceCallingOrSelfReadPrivilegedPhoneStatePermissionOrCarrierPrivilege(
+                .enforceCallingOrSelfReadPrivilegedPhoneStatePermissionOrCarrierPrivilege(
                 mApp, (subIds != null ? subIds[0] : SubscriptionManager.INVALID_SUBSCRIPTION_ID),
                 "getBoundImsServicePackage");
 
@@ -5255,7 +5255,7 @@ public class PhoneInterfaceManager extends ITelephony.Stub {
     @Override
     public String getManualNetworkSelectionPlmn(int subId) {
         TelephonyPermissions
-                    .enforeceCallingOrSelfReadPrecisePhoneStatePermissionOrCarrierPrivilege(
+                    .enforceCallingOrSelfReadPrecisePhoneStatePermissionOrCarrierPrivilege(
                     mApp, subId, "getManualNetworkSelectionPlmn");
 
         final long identity = Binder.clearCallingIdentity();
@@ -5505,7 +5505,7 @@ public class PhoneInterfaceManager extends ITelephony.Stub {
     @Override
     public int getPreferredNetworkType(int subId) {
         TelephonyPermissions
-                .enforeceCallingOrSelfReadPrivilegedPhoneStatePermissionOrCarrierPrivilege(
+                .enforceCallingOrSelfReadPrivilegedPhoneStatePermissionOrCarrierPrivilege(
                         mApp, subId, "getPreferredNetworkType");
 
         final long identity = Binder.clearCallingIdentity();
@@ -5556,7 +5556,7 @@ public class PhoneInterfaceManager extends ITelephony.Stub {
     @Override
     public long getAllowedNetworkTypes(int subId) {
         TelephonyPermissions
-                .enforeceCallingOrSelfReadPrivilegedPhoneStatePermissionOrCarrierPrivilege(
+                .enforceCallingOrSelfReadPrivilegedPhoneStatePermissionOrCarrierPrivilege(
                     mApp, subId, "getAllowedNetworkTypes");
 
         final long identity = Binder.clearCallingIdentity();
@@ -5601,7 +5601,7 @@ public class PhoneInterfaceManager extends ITelephony.Stub {
     public long getAllowedNetworkTypesForReason(int subId,
             @TelephonyManager.AllowedNetworkTypesReason int reason) {
         TelephonyPermissions
-                .enforeceCallingOrSelfReadPrivilegedPhoneStatePermissionOrCarrierPrivilege(
+                .enforceCallingOrSelfReadPrivilegedPhoneStatePermissionOrCarrierPrivilege(
                         mApp, subId, "getAllowedNetworkTypesForReason");
         final long identity = Binder.clearCallingIdentity();
         try {
@@ -5622,7 +5622,7 @@ public class PhoneInterfaceManager extends ITelephony.Stub {
     @Override
     public long getEffectiveAllowedNetworkTypes(int subId) {
         TelephonyPermissions
-                .enforeceCallingOrSelfReadPrivilegedPhoneStatePermissionOrCarrierPrivilege(
+                .enforceCallingOrSelfReadPrivilegedPhoneStatePermissionOrCarrierPrivilege(
                         mApp, subId, "getEffectiveAllowedNetworkTypes");
         final long identity = Binder.clearCallingIdentity();
         try {
@@ -6331,7 +6331,7 @@ public class PhoneInterfaceManager extends ITelephony.Stub {
         Phone phone = PhoneFactory.getPhone(phoneId);
         try {
             TelephonyPermissions
-                    .enforeceCallingOrSelfReadPrivilegedPhoneStatePermissionOrCarrierPrivilege(
+                    .enforceCallingOrSelfReadPrivilegedPhoneStatePermissionOrCarrierPrivilege(
                             mApp, phone.getSubId(), "getRadioAccessFamily");
         } catch (SecurityException e) {
             EventLog.writeEvent(0x534e4554, "150857259", -1, "Missing Permission");
@@ -6344,7 +6344,7 @@ public class PhoneInterfaceManager extends ITelephony.Stub {
         final long identity = Binder.clearCallingIdentity();
         try {
             TelephonyPermissions
-                    .enforeceCallingOrSelfReadPrivilegedPhoneStatePermissionOrCarrierPrivilege(
+                    .enforceCallingOrSelfReadPrivilegedPhoneStatePermissionOrCarrierPrivilege(
                             mApp, phone.getSubId(), "getRadioAccessFamily");
             raf = ProxyController.getInstance().getRadioAccessFamily(phoneId);
         } finally {
@@ -7477,7 +7477,7 @@ public class PhoneInterfaceManager extends ITelephony.Stub {
             Phone phone = getPhone(subId);
             isEnabled =  phone != null ? phone.getDataRoamingEnabled() : false;
         } catch (Exception e) {
-            TelephonyPermissions.enforeceCallingOrSelfReadPhoneStatePermissionOrCarrierPrivilege(
+            TelephonyPermissions.enforceCallingOrSelfReadPhoneStatePermissionOrCarrierPrivilege(
                     mApp, subId, "isDataRoamingEnabled");
         } finally {
             Binder.restoreCallingIdentity(identity);
@@ -7515,7 +7515,7 @@ public class PhoneInterfaceManager extends ITelephony.Stub {
     @Override
     public boolean isManualNetworkSelectionAllowed(int subId) {
         TelephonyPermissions
-                .enforeceCallingOrSelfReadPrivilegedPhoneStatePermissionOrCarrierPrivilege(
+                .enforceCallingOrSelfReadPrivilegedPhoneStatePermissionOrCarrierPrivilege(
                 mApp, subId, "isManualNetworkSelectionAllowed");
 
         boolean isAllowed = true;
@@ -7796,7 +7796,7 @@ public class PhoneInterfaceManager extends ITelephony.Stub {
     @Override
     public int getCdmaRoamingMode(int subId) {
         TelephonyPermissions
-                .enforeceCallingOrSelfReadPrivilegedPhoneStatePermissionOrCarrierPrivilege(
+                .enforceCallingOrSelfReadPrivilegedPhoneStatePermissionOrCarrierPrivilege(
                 mApp, subId, "getCdmaRoamingMode");
 
         final long identity = Binder.clearCallingIdentity();
@@ -7863,7 +7863,7 @@ public class PhoneInterfaceManager extends ITelephony.Stub {
         final Phone defaultPhone = getDefaultPhone();
         if (!exactMatch) {
             TelephonyPermissions
-                    .enforeceCallingOrSelfReadPrivilegedPhoneStatePermissionOrCarrierPrivilege(
+                    .enforceCallingOrSelfReadPrivilegedPhoneStatePermissionOrCarrierPrivilege(
                             mApp, defaultPhone.getSubId(), "isEmergencyNumber(Potential)");
         }
         final long identity = Binder.clearCallingIdentity();
